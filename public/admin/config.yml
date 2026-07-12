@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/jivant-news
+  repo: jivantnews/jivantnews-site
   branch: main
   base_url: https://jivant-news-login.jivantnews.workers.dev
   auth_endpoint: auth
