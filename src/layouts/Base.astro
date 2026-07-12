@@ -1,0 +1,234 @@
+---
+import CookieBanner from '../components/CookieBanner.astro';
+import { SITE } from '../config';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description = "जीवंत न्यूज़ — ताज़ा और भरोसेमंद खबरें",
+  image = `${SITE.url}/logo-512.png`,
+  type = 'website',
+  publishedTime,
+  canonicalPath
+} = Astro.props;
+
+const canonicalURL = new URL(canonicalPath ?? Astro.url.pathname, SITE.url).toString();
+---
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <title>{title}</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:url" content={canonicalURL} />
+  {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@600;700;900&family=Noto+Sans+Devanagari:wght@400;500;600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :global(:root) {
+      --ink: #14171F;
+      --paper: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --nav-bg: #f7f6f2;
+      --chip-bg: #EFEDE6;
+      --indigo: #1D2951;
+      --marigold: #E8A33D;
+      --alert: #C0392B;
+      --line: #E7E4DC;
+      --muted: #8a8e96;
+    }
+    @media (prefers-color-scheme: dark) {
+      :global(:root) {
+        --ink: #ECEDEE;
+        --paper: #0F1115;
+        --card-bg: #171A20;
+        --nav-bg: #14161B;
+        --chip-bg: #1E2128;
+        --line: #2A2D34;
+        --muted: #9a9ea6;
+      }
+    }
+    :global(*) { box-sizing: border-box; }
+    :global(html), :global(body) {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+    :global(h1), :global(h2), :global(h3), :global(.headline) {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 0;
+    }
+    :global(a) { color: inherit; text-decoration: none; }
+    :global(a:focus-visible), :global(button:focus-visible) {
+      outline: 3px solid var(--marigold);
+      outline-offset: 2px;
+    }
+    :global(img) { max-width: 100%; }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header.site {
+      background: var(--indigo);
+      padding: 14px 0;
+    }
+    header.site .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+    }
+    .brand-text .logo {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .brand-text .logo span { color: var(--marigold); }
+    .brand-text .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #cfd3e6;
+    }
+    .search-link {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+    main { padding: 32px 0 48px; min-height: 50vh; }
+    footer.site {
+      border-top: 1px solid var(--line);
+      padding: 32px 0 90px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer.site .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      text-align: center;
+    }
+    .social-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .social-links a {
+      color: var(--ink);
+      display: flex;
+    }
+    .social-links a:hover {
+      color: var(--marigold);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="Jivant News logo" width="42" height="42" />
+        <div class="brand-text">
+          <div class="logo">जीवंत<span>न्यूज़</span></div>
+          <div class="tagline">Jivant News</div>
+        </div>
+      </a>
+      <a class="search-link" href="/search/" aria-label="खोजें">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </div>
+  </header>
+  <slot name="nav" />
+  <main data-pagefind-body>
+    <div class="wrap">
+      <slot />
+    </div>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <div class="social-links">
+        <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href={SITE.social.x} target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2h3.3l-7.2 8.2L23.5 22h-6.6l-5.2-6.8L5.7 22H2.4l7.7-8.8L1.5 2h6.8l4.7 6.2zm-1.2 18h1.8L7.4 4h-2z"/></svg>
+        </a>
+        <a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About Us</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+      </div>
+      <div>© {new Date().getFullYear()} Jivant News · सभी अधिकार सुरक्षित</div>
+    </div>
+  </footer>
+  <CookieBanner />
+</body>
+</html>

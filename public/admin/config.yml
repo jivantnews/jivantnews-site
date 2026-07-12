@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/jivant-news
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "news"
+    label: "समाचार"
+    label_singular: "समाचार"
+    folder: "src/content/news"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    fields:
+      - { label: "शीर्षक (Title)", name: "title", widget: "string" }
+      - { label: "URL Slug (English)", name: "slug", widget: "string", hint: "e.g. almora-rain-alert" }
+      - { label: "फ़ोटो (Image, 1200x675px, 16:9)", name: "image", widget: "image" }
+      - { label: "फ़ोटो Alt Text", name: "imageAlt", widget: "string", required: false }
+      - { label: "विवरण (Description)", name: "description", widget: "text" }
+      - label: "श्रेणी (Category)"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "अपराध", value: "crime" }
+          - { label: "राजनीति", value: "politics" }
+          - { label: "उपभोक्ता", value: "consumer" }
+          - { label: "शेयर बाजार", value: "stock-market" }
+          - { label: "व्यापार", value: "business" }
+          - { label: "दुनिया", value: "world" }
+          - { label: "टेक्नोलॉजी", value: "technology" }
+          - { label: "विज्ञान", value: "science" }
+          - { label: "स्वास्थ्य", value: "health" }
+          - { label: "शिक्षा", value: "education" }
+          - { label: "रोजगार", value: "jobs" }
+          - { label: "खेल", value: "sports" }
+          - { label: "मनोरंजन", value: "entertainment" }
+          - { label: "ऑटो", value: "auto" }
+          - { label: "मौसम", value: "weather" }
+          - { label: "आध्यात्म", value: "spirituality" }
+          - { label: "फैक्ट चेक", value: "fact-check" }
+      - { label: "लेखक (Author)", name: "author", widget: "string", default: "Jivant News Desk" }
+      - { label: "तारीख़ (Date)", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD'T'HH:mm:ss" }
+      - { label: "पूरी खबर (Full story, optional)", name: "body", widget: "markdown", required: false }

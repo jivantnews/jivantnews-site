@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title={`संपर्क करें — ${SITE.name}`} description="Jivant News से संपर्क करें" canonicalPath="/contact/">
+  <article class="page">
+    <h1>संपर्क करें</h1>
+    <p>किसी भी सुझाव, शिकायत या समाचार भेजने के लिए हमसे नीचे दिए गए ईमेल पर संपर्क करें।</p>
+    <p><strong>ईमेल:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+    <p><strong>स्थान:</strong> {SITE.city}, भारत</p>
+  </article>
+</Base>
+
+<style>
+  .page { max-width: 720px; margin: 0 auto; line-height: 1.8; }
+  .page h1 { font-size: 1.6rem; margin-bottom: 20px; }
+  .page p { margin-bottom: 16px; }
+</style>

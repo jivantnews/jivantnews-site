@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import NewsRow from '../../components/NewsRow.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { getPostsByCategory, paginate } from '../../lib/posts';
+import { categories, labelFor, SITE } from '../../config';
+
+export async function getStaticPaths() {
+  return categories.map((c) => ({ params: { category: c.slug } }));
+}
+
+const { category } = Astro.params;
+const posts = await getPostsByCategory(category as string);
+const { pageItems, hasNext } = paginate(posts, 1);
+const label = labelFor(category as string);
+---
+<Base
+  title={`${label} समाचार — ${SITE.name}`}
+  description={`${label} से जुड़ी ताज़ा खबरें — ${SITE.name}`}
+  canonicalPath={`/${category}/`}
+>
+  <CategoryNav slot="nav" active={category as string} />
+  <h1 class="page-title">{label}</h1>
+  <div class="list">
+    {pageItems.map((post) => (
+      <NewsRow
+        category={post.data.category}
+        slug={post.slug}
+        title={post.data.title}
+        image={post.data.image}
+        imageAlt={post.data.imageAlt}
+      />
+    ))}
+  </div>
+  {posts.length === 0 && <p class="empty">इस श्रेणी में अभी कोई समाचार नहीं है।</p>}
+  <AdSlot label="Advertisement" />
+  {hasNext && <a class="view-more" href={`/${category}/page/2/`}>और पुरानी खबरें देखें</a>}
+</Base>
+
+<style>
+  .page-title { font-size: 1.4rem; margin-bottom: 16px; }
+  .list { display: flex; flex-direction: column; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  .view-more {
+    display: block;
+    text-align: center;
+    margin: 24px auto 0;
+    padding: 12px 28px;
+    background: var(--indigo);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 4px;
+    max-width: 260px;
+  }
+</style>

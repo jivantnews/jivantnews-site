@@ -1,0 +1,161 @@
+---
+import Base from '../../layouts/Base.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import NewsRow from '../../components/NewsRow.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { getAllPostsSorted, relatedPosts } from '../../lib/posts';
+import { categories, labelFor, SITE } from '../../config';
+
+export async function getStaticPaths() {
+  const all = await getAllPostsSorted();
+  return all.map((post) => ({
+    params: { category: post.data.category, slug: post.slug },
+    props: { post, all }
+  }));
+}
+
+const { post, all } = Astro.props;
+const { Content } = await post.render();
+const label = labelFor(post.data.category);
+const dateStr = post.data.pubDate.toLocaleDateString('en-GB');
+const related = relatedPosts(all, post, 10);
+
+const canonicalPath = `/${post.data.category}/${post.slug}/`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: post.data.title,
+  description: post.data.description,
+  image: {
+    "@type": "ImageObject",
+    url: post.data.image,
+    width: 1200,
+    height: 675
+  },
+  datePublished: post.data.pubDate.toISOString(),
+  author: { "@type": "Organization", name: post.data.author },
+  publisher: {
+    "@type": "Organization",
+    name: SITE.name,
+    logo: { "@type": "ImageObject", url: `${SITE.url}/logo-512.png` }
+  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE.url}${canonicalPath}` }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "होम", item: SITE.url + "/" },
+    { "@type": "ListItem", position: 2, name: label, item: `${SITE.url}/${post.data.category}/` },
+    { "@type": "ListItem", position: 3, name: post.data.title, item: `${SITE.url}${canonicalPath}` }
+  ]
+};
+---
+<Base
+  title={`${post.data.title} — ${SITE.name}`}
+  description={post.data.description}
+  image={post.data.image}
+  type="article"
+  publishedTime={post.data.pubDate}
+  canonicalPath={canonicalPath}
+>
+  <CategoryNav slot="nav" active={post.data.category} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">होम</a> / <a href={`/${post.data.category}/`}>{label}</a>
+  </nav>
+
+  <article class="article">
+    <span class="cat">{label}</span>
+    <h1 class="headline">{post.data.title}</h1>
+    <div class="hero-wrap">
+      <img
+        class="hero"
+        src={post.data.image}
+        alt={post.data.imageAlt || post.data.title}
+        width="1200"
+        height="675"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <p class="lead">{post.data.description}</p>
+    <div class="body">
+      <Content />
+    </div>
+    <div class="meta-row">
+      <span>{post.data.author}</span>
+      <span>{dateStr}</span>
+    </div>
+  </article>
+
+  <AdSlot label="Advertisement" />
+
+  {related.length > 0 && (
+    <section class="related">
+      <h2>संबंधित खबरें</h2>
+      <div class="list">
+        {related.map((p) => (
+          <NewsRow
+            category={p.data.category}
+            slug={p.slug}
+            title={p.data.title}
+            image={p.data.image}
+            imageAlt={p.data.imageAlt}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a { font-weight: 600; }
+  .article { max-width: 720px; margin: 0 auto; }
+  .cat {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--marigold);
+    margin-bottom: 10px;
+  }
+  h1.headline { font-size: 1.8rem; margin-bottom: 18px; }
+  .hero-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--chip-bg);
+    margin-bottom: 18px;
+  }
+  .hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .lead { font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+  .body { font-size: 1rem; line-height: 1.8; }
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .related { max-width: 720px; margin: 8px auto 0; }
+  .related h2 { font-size: 1.2rem; margin-bottom: 4px; }
+  .related .list { display: flex; flex-direction: column; }
+</style>

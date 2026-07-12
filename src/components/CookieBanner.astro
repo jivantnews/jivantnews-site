@@ -1,0 +1,51 @@
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <p>We are using cookies to improve your experience and show relevant ads.</p>
+  <button id="cookie-accept">OK</button>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--indigo);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 0.85rem;
+  }
+  .cookie-banner[hidden] {
+    display: none;
+  }
+  .cookie-banner p { margin: 0; }
+  .cookie-banner button {
+    background: var(--marigold);
+    color: #1a1200;
+    border: none;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const KEY = 'jivant-cookie-consent';
+  const banner = document.getElementById('cookie-banner');
+  const btn = document.getElementById('cookie-accept');
+  try {
+    if (!localStorage.getItem(KEY)) {
+      banner?.removeAttribute('hidden');
+    }
+  } catch (e) {}
+  btn?.addEventListener('click', () => {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    banner?.setAttribute('hidden', '');
+  });
+</script>

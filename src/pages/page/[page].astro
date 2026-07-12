@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import NewsRow from '../../components/NewsRow.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { getAllPostsSorted, paginate } from '../../lib/posts';
+import { SITE, PAGE_SIZE } from '../../config';
+
+export async function getStaticPaths() {
+  const all = await getAllPostsSorted();
+  const totalPages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+  const paths = [];
+  for (let p = 2; p <= totalPages; p++) {
+    paths.push({ params: { page: String(p) } });
+  }
+  return paths;
+}
+
+const { page } = Astro.params;
+const pageNum = parseInt(page as string, 10);
+const all = await getAllPostsSorted();
+const { pageItems, hasNext, totalPages } = paginate(all, pageNum);
+---
+<Base title={`${SITE.name} — पुरानी खबरें (पेज ${pageNum})`} canonicalPath={`/page/${pageNum}/`}>
+  <CategoryNav slot="nav" />
+  <div class="list">
+    {pageItems.map((post) => (
+      <NewsRow
+        category={post.data.category}
+        slug={post.slug}
+        title={post.data.title}
+        image={post.data.image}
+        imageAlt={post.data.imageAlt}
+      />
+    ))}
+  </div>
+  <AdSlot label="Advertisement" />
+  <div class="pager">
+    {pageNum > 1 && <a href={pageNum === 2 ? '/' : `/page/${pageNum - 1}/`}>← नई खबरें</a>}
+    {hasNext && <a href={`/page/${pageNum + 1}/`}>और पुरानी खबरें →</a>}
+  </div>
+</Base>
+
+<style>
+  .list { display: flex; flex-direction: column; }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    font-weight: 700;
+    color: var(--marigold);
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+import { categories } from '../config';
+export interface Props { active?: string; }
+const { active } = Astro.props;
+---
+<nav class="cat-nav" aria-label="Categories">
+  <button class="arrow arrow-left" id="cat-scroll-left" aria-label="बाएं स्क्रॉल करें" type="button">‹</button>
+  <div class="scroller" id="cat-scroller">
+    <a href="/" class={`chip ${!active ? 'active' : ''}`}>होम</a>
+    {categories.map((c) => (
+      <a
+        href={`/${c.slug}/`}
+        class={`chip ${active === c.slug ? 'active' : ''}`}
+      >{c.label}</a>
+    ))}
+  </div>
+  <button class="arrow arrow-right" id="cat-scroll-right" aria-label="दाएं स्क्रॉल करें" type="button">›</button>
+</nav>
+
+<style>
+  .cat-nav {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .scroller {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+  }
+  .scroller::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .chip.active {
+    background: var(--marigold);
+    color: #1a1200;
+  }
+  .arrow {
+    display: none;
+    flex: 0 0 auto;
+    background: var(--nav-bg);
+    color: var(--ink);
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 8px 10px;
+    z-index: 2;
+  }
+  @media (min-width: 769px) {
+    .arrow { display: block; }
+  }
+</style>
+
+<script>
+  const scroller = document.getElementById('cat-scroller');
+  const leftBtn = document.getElementById('cat-scroll-left');
+  const rightBtn = document.getElementById('cat-scroll-right');
+  leftBtn?.addEventListener('click', () => scroller?.scrollBy({ left: -240, behavior: 'smooth' }));
+  rightBtn?.addEventListener('click', () => scroller?.scrollBy({ left: 240, behavior: 'smooth' }));
+</script>

@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title={`Privacy Policy — ${SITE.name}`} description="Jivant News Privacy Policy" canonicalPath="/privacy-policy/">
+  <article class="page">
+    <h1>Privacy Policy</h1>
+    <p>Jivant News values your privacy. This page explains how we handle information when you visit our website.</p>
+
+    <h2>Cookies</h2>
+    <p>We use cookies to improve your browsing experience and to show relevant advertisements through services like Google AdSense.</p>
+
+    <h2>Advertising</h2>
+    <p>We may display ads served by Google AdSense. Google may use cookies to serve ads based on your prior visits to this or other websites. You can opt out of personalized advertising by visiting Google's Ads Settings.</p>
+
+    <h2>Third-Party Links</h2>
+    <p>Our site may contain links to external sites. We are not responsible for the privacy practices of those sites.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy, contact us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .page { max-width: 720px; margin: 0 auto; line-height: 1.8; }
+  .page h1 { font-size: 1.6rem; margin-bottom: 20px; }
+  .page h2 { font-size: 1.15rem; margin: 24px 0 8px; }
+  .page p { margin-bottom: 12px; }
+</style>

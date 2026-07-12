@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title={`पेज नहीं मिला — ${SITE.name}`} description="यह पेज उपलब्ध नहीं है">
+  <div class="error-page">
+    <h1>404</h1>
+    <p>माफ़ कीजिए, यह पेज उपलब्ध नहीं है या हटा दिया गया है।</p>
+    <a class="home-link" href="/">होम पेज पर जाएं</a>
+  </div>
+</Base>
+
+<style>
+  .error-page {
+    text-align: center;
+    padding: 60px 0;
+  }
+  .error-page h1 {
+    font-size: 4rem;
+    color: var(--marigold);
+  }
+  .error-page p {
+    margin: 12px 0 24px;
+    color: var(--muted);
+  }
+  .home-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--indigo);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 4px;
+  }
+</style>

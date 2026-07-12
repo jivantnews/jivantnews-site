@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title={`हमारे बारे में — ${SITE.name}`} description="Jivant News के बारे में जानकारी" canonicalPath="/about/">
+  <article class="page">
+    <h1>हमारे बारे में</h1>
+    <p><strong>Jivant News</strong> एक हिंदी डिजिटल समाचार मंच है जिसका उद्देश्य पाठकों तक तेज़, स्पष्ट और भरोसेमंद खबरें पहुँचाना है।</p>
+    <p>हम अपराध, राजनीति, व्यापार, खेल, मनोरंजन, स्वास्थ्य, शिक्षा और अन्य महत्वपूर्ण विषयों पर नियमित रूप से समाचार प्रकाशित करते हैं।</p>
+    <p>प्रकाशक: {SITE.name}<br />स्थान: {SITE.city}<br />संपर्क: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+  </article>
+</Base>
+
+<style>
+  .page { max-width: 720px; margin: 0 auto; line-height: 1.8; }
+  .page h1 { font-size: 1.6rem; margin-bottom: 20px; }
+  .page p { margin-bottom: 16px; }
+</style>

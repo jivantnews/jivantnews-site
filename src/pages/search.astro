@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title={`खोजें — ${SITE.name}`} description="Jivant News पर समाचार खोजें" canonicalPath="/search/">
+  <h1 class="page-title">खोजें</h1>
+  <div id="search"></div>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-ui.js" is:inline></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.PagefindUI) {
+        new window.PagefindUI({ element: "#search", showSubResults: true });
+      }
+    });
+  </script>
+</Base>
+
+<style>
+  .page-title { font-size: 1.4rem; margin-bottom: 16px; }
+</style>

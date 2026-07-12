@@ -1,0 +1,17 @@
+{
+  "name": "jivant-news",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "postbuild": "pagefind --site dist",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^4.16.0",
+    "pagefind": "^1.5.2"
+  }
+}
