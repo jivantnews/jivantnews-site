@@ -10,7 +10,7 @@ const news = defineCollection({
     imageAlt: z.string().optional(),
     category: z.enum(categorySlugs),
     author: z.string().default('Jivant News Desk'),
-    pubDate: z.date()
+    pubDate: z.coerce.date()
   })
 });
 
