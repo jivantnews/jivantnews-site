@@ -44,5 +44,5 @@ collections:
           - { label: "आध्यात्म", value: "spirituality" }
           - { label: "फैक्ट चेक", value: "fact-check" }
       - { label: "लेखक (Author)", name: "author", widget: "string", default: "Jivant News Desk" }
-      - { label: "तारीख़ (Date)", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD'T'HH:mm:ss" }
+      - { label: "तारीख़ (Date)", name: "pubDate", widget: "datetime" }
       - { label: "पूरी खबर (Full story, optional)", name: "body", widget: "markdown", required: false }
