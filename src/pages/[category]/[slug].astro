@@ -19,7 +19,9 @@ const { Content } = await post.render();
 const label = labelFor(post.data.category);
 const dateStr = post.data.pubDate.toLocaleDateString('en-GB');
 const related = relatedPosts(all, post, 10);
-
+const currentIndex = all.findIndex((p) => p.slug === post.slug);
+const olderPost = currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
+const newerPost = currentIndex > 0 ? all[currentIndex - 1] : null;
 const canonicalPath = `/${post.data.category}/${post.slug}/`;
 
 const articleSchema = {
@@ -93,7 +95,14 @@ const breadcrumbSchema = {
       <span>{dateStr}</span>
     </div>
   </article>
-
+<nav class="prev-next">
+    {olderPost ? (
+      <a href={`/${olderPost.data.category}/${olderPost.slug}/`}>← पिछला लेख</a>
+    ) : <span />}
+    {newerPost ? (
+      <a href={`/${newerPost.data.category}/${newerPost.slug}/`}>अगला लेख →</a>
+    ) : <span />}
+  </nav>
   <AdSlot label="Advertisement" />
 
   {related.length > 0 && (
@@ -158,4 +167,13 @@ const breadcrumbSchema = {
   .related { max-width: 720px; margin: 8px auto 0; }
   .related h2 { font-size: 1.2rem; margin-bottom: 4px; }
   .related .list { display: flex; flex-direction: column; }
+.prev-next {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin: 20px auto 0;
+    font-weight: 700;
+    color: var(--marigold);
+  }
+  .prev-next a { font-size: 0.9rem; }
 </style>
