@@ -1,6 +1,6 @@
 ---
-title: रायपुर उपभोक्ता आयोग का मारुति सुजुकी को आदेश, 45 दिन में नई E20-संगत कार
-  दें या पूरी रकम लौटाएं
+title: रायपुर उपभोक्ता आयोग का मारुति सुजुकी को आदेश, 45 दिन में नई E20 कंपेटिबल
+  कार दें या पूरी रकम लौटाएं
 slug: raipur-consumer-court-maruti-e20-car-order
 image: /images/46653.jpg
 imageAlt: Maruti Suzuki Grand Vitara outside consumer commission
