@@ -31,6 +31,8 @@ collections:
           - { label: "उपभोक्ता", value: "consumer" }
           - { label: "शेयर बाजार", value: "stock-market" }
           - { label: "व्यापार", value: "business" }
+          - { label: "राज्य", value: 
+"state" }
           - { label: "दुनिया", value: "world" }
           - { label: "टेक्नोलॉजी", value: "technology" }
           - { label: "विज्ञान", value: "science" }
