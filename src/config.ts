@@ -9,6 +9,7 @@ export const categories: Category[] = [
   { slug: "consumer", label: "उपभोक्ता" },
   { slug: "stock-market", label: "शेयर बाजार" },
   { slug: "business", label: "व्यापार" },
+  { slug: "state", label: "राज्य" },
   { slug: "world", label: "दुनिया" },
   { slug: "technology", label: "टेक्नोलॉजी" },
   { slug: "science", label: "विज्ञान" },
