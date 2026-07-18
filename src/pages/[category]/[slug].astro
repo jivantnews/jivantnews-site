@@ -182,6 +182,30 @@ const breadcrumbSchema = {
     color: var(--marigold);
   }
   .prev-next a { font-size: 0.9rem; }
+.share-wrap {
+    max-width: 720px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+  }
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1.5px solid var(--marigold);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .share-btn:hover {
+    background: var(--marigold);
+    color: #1a1200;
+  }
 </style>
 <script>
   const btn = document.getElementById('share-btn');
