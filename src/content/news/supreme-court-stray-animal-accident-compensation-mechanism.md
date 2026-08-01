@@ -3,7 +3,7 @@ title: "आवारा पशुओं से होने वाले हा�
   केंद्र और राज्यों को दिए निर्देश"
 slug: supreme-court-stray-animal-accident-compensation-mechanism
 image: /images/53299.jpg
-imageAlt: Supreme Court of India building
+imageAlt: Motorcycle accident on a highway after encountering a stray animal.
 description: सुप्रीम कोर्ट ने केंद्र और राज्य सरकारों से आवारा पशुओं के कारण
   होने वाली दुर्घटनाओं के पीड़ितों के लिए मुआवजा व्यवस्था विकसित करने को कहा है।
   कोर्ट ने पंजाब के संगरूर मामले में मृतक के परिवार को 15 लाख रुपये का मुआवजा
