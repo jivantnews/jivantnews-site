@@ -9,18 +9,22 @@ export const categories: Category[] = [
   { slug: "consumer", label: "उपभोक्ता" },
   { slug: "stock-market", label: "शेयर बाजार" },
   { slug: "business", label: "व्यापार" },
-  { slug: "state", label: "राज्य" },
+  { slug: "uttarakhand", label: "उत्तराखंड" },
   { slug: "world", label: "दुनिया" },
   { slug: "technology", label: "टेक्नोलॉजी" },
   { slug: "science", label: "विज्ञान" },
   { slug: "health", label: "स्वास्थ्य" },
   { slug: "education", label: "शिक्षा" },
   { slug: "jobs", label: "रोजगार" },
+  { slug: "infrastructure", label: "इन्फ्रा" },
+  { slug: "judiciary", label: "न्यायालय" },
   { slug: "sports", label: "खेल" },
   { slug: "entertainment", label: "मनोरंजन" },
   { slug: "auto", label: "ऑटो" },
   { slug: "weather", label: "मौसम" },
   { slug: "spirituality", label: "आध्यात्म" },
+  { slug: "religion", label: "धर्म" },
+  { slug: "analysis", label: "विश्लेषण" },
   { slug: "fact-check", label: "फैक्ट चेक" }
 ];
 
