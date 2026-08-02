@@ -31,17 +31,22 @@ collections:
           - { label: "उपभोक्ता", value: "consumer" }
           - { label: "शेयर बाजार", value: "stock-market" }
           - { label: "व्यापार", value: "business" }
+          - { label: "उत्तराखंड", value: "uttarakhand" }
           - { label: "दुनिया", value: "world" }
           - { label: "टेक्नोलॉजी", value: "technology" }
           - { label: "विज्ञान", value: "science" }
           - { label: "स्वास्थ्य", value: "health" }
           - { label: "शिक्षा", value: "education" }
           - { label: "रोजगार", value: "jobs" }
+          - { label: "इन्फ्रा", value: "infrastructure" }
+          - { label: "न्यायालय", value: "judiciary" }
           - { label: "खेल", value: "sports" }
           - { label: "मनोरंजन", value: "entertainment" }
           - { label: "ऑटो", value: "auto" }
           - { label: "मौसम", value: "weather" }
           - { label: "आध्यात्म", value: "spirituality" }
+          - { label: "धर्म", value: "religion" }
+          - { label: "विश्लेषण", value: "analysis" }
           - { label: "फैक्ट चेक", value: "fact-check" }
       - { label: "लेखक (Author)", name: "author", widget: "string", default: "Jivant News Desk" }
       - { label: "तारीख़ (Date)", name: "pubDate", widget: "datetime" }
