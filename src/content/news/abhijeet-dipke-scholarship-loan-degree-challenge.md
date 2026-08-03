@@ -1,6 +1,6 @@
 ---
 title: अभिजीत दिपके बोले, "स्कॉलरशिप और एजुकेशन लोन के दस्तावेज़ दिखाऊंगा", फिर
-  पूछा- "क्या सम्राट अपनी डिग्री दिखाएंगे?"
+  पूछा- "क्या एम्परर अपनी डिग्री दिखाएंगे?"
 slug: abhijeet-dipke-scholarship-loan-degree-challenge
 image: /images/54256.jpg
 imageAlt: Abhijeet Dipke speaking during an interview
