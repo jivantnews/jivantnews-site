@@ -109,6 +109,17 @@ const breadcrumbSchema = {
       <a href={`/${newerPost.data.category}/${newerPost.slug}/`}>अगला लेख →</a>
     ) : <span />}
   </nav>
+<div class="comments-section">
+    <h2>टिप्पणियाँ</h2>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="d539f04e-1822-474d-9b89-b5f2f126b1fc"
+      data-page-id={post.slug}
+      data-page-url={canonicalPath}
+      data-page-title={post.data.title}
+    ></div>
+    <script async src="https://cusdis.com/js/cusdis.es.js"></script>
+  </div>
   <AdSlot label="Advertisement" />
 
   {related.length > 0 && (
