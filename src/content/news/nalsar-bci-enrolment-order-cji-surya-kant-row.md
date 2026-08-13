@@ -1,6 +1,6 @@
 ---
-title: "NALSAR विवाद: असहमति पर कैरियर रोकने की कोशिश ने BCI पर उठाए गंभीर सवाल,
-  आदेश वापस लेना क्यों जरूरी था"
+title: NALSAR छात्रों ने CJI सूर्यकांत को लेकर जताई असहमति, BCI ने पूरे बैच के
+  कैरियर पर लगाई रोक; फिर क्यों पलटा आदेश?
 slug: nalsar-bci-enrolment-order-cji-surya-kant-row
 image: /images/58803.jpg
 imageAlt: NALSAR University law students involved in a controversy over CJI
