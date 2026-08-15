@@ -1,6 +1,6 @@
 ---
-title: राजस्थान के जोधावास स्कूल प्रदर्शन में रोहिताश घांघल के पहुंचने का दावा,
-  आपराधिक मामलों के रिकॉर्ड से बढ़े सवाल
+title: राजस्थान के जोधावास स्कूल ठीक करो प्रदर्शन में रोहिताश घांघल के पहुंचने
+  का दावा, आपराधिक मामलों के रिकॉर्ड से बढ़े सवाल
 slug: jodhawas-school-protest-rohitash-ghanghal-criminal-cases-bjp-connection
 image: /images/59832.jpg
 imageAlt: Students protesting outside a government school in Jodhawas, Alwar
