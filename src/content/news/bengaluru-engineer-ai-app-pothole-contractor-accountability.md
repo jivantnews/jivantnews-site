@@ -2,7 +2,7 @@
 title: बेंगलुरु के इंजीनियर ने बनाया AI ऐप, सड़क का गड्ढा दिखते ही पता चलेगा किस
   ठेकेदार ने बनाया था और शिकायत कहां करनी है
 slug: bengaluru-engineer-ai-app-pothole-contractor-accountability
-image: /images/60738.jpg
+image: /images/55381.jpg
 imageAlt: AI-powered app detecting potholes on a Bengaluru road
 description: बेंगलुरु के तकनीकी विशेषज्ञ गौरव सेन से जुड़े एक AI प्रोजेक्ट में
   सड़क के गड्ढों को स्वचालित तरीके से पहचानने और उनकी लोकेशन दर्ज करने का दावा
