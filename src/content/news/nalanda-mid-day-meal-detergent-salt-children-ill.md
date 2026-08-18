@@ -1,6 +1,6 @@
 ---
-title: नालंदा में मिड-डे मील में नमक की जगह सर्फ! दर्जनों बच्चे बीमार, मंत्री ने
-  जांच के दिए निर्देश
+title: "नालंदा में मिड-डे मील में नमक की जगह दिया सर्फ जिसकी वजह से दर्जनों हुवे
+  बच्चे बीमार: मंत्री ने जांच के दिए निर्देश"
 slug: nalanda-mid-day-meal-detergent-salt-children-ill
 image: /images/62208.jpg
 imageAlt: Children receiving medical treatment after falling ill at a school in
