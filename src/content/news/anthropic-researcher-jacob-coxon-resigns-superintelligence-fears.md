@@ -1,6 +1,6 @@
 ---
 title: एंथ्रोपिक के शोधकर्ता ने सुपरइंटेलिजेंस के खतरे को लेकर छोड़ी कंपनी,
-  बोले- मानवता के साथ हो रहा ‘जुआ’
+  बोले- मानवता के साथ हो रहा जुआ
 slug: anthropic-researcher-jacob-coxon-resigns-superintelligence-fears
 image: /images/76316.jpg
 imageAlt: Jacob Coxon with Anthropic logo amid artificial intelligence safety concerns
