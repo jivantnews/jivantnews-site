@@ -1,6 +1,6 @@
 ---
-title: रूस की जूली को बिहार के राहुल से हुआ प्यार, भारत पहुंची परिवार संग;
-  झोपड़ी में रहने को भी तैयार!
+title: रूस की जूली को बिहार के राहुल से हुआ प्यार, भारत पहुंची परिवार संग झोपड़ी
+  में रहने को भी तैयार
 slug: russian-juli-rahul-love-story-bhagalpur
 image: /images/95056.jpg
 imageAlt: Russian woman Juli with Rahul in Bihar
