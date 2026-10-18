@@ -2,7 +2,7 @@
 title: बच्चों के लिए अपनी जेब से लाखों खर्च किए, स्कूल चमकाया फिर हुआ ट्रांसफर,
   अब उसी शिक्षक को शिक्षा विभाग का नोटिस!
 slug: mp-teacher-school-improvement-transfer-show-cause-notice
-image: /images/97712.jpg
+image: /images/97718.jpg
 imageAlt: Teacher and students at government school
 description: मध्य प्रदेश के रतलाम में सरकारी स्कूल की तस्वीर बदलने वाले शिक्षक
   बद्रीलाल राठौर के मामले ने नया मोड़ ले लिया है। अपनी जेब से सुविधाएं जुटाने और
