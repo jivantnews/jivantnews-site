@@ -3,7 +3,7 @@ title: ढाई साल में IAS-IPS परिवार ने खरी
   और ₹1.80 करोड़ सालाना किराये का दावा
 slug: as-ips-family-40-villas-property-questions
 image: /images/102183.jpg
-imageAlt: Luxury villas at a Rajasthan resort
+imageAlt: IAS-IPS couple posing outside a modern building
 description: राजस्थान के वरिष्ठ IAS अधिकारी शिखर अग्रवाल और उनकी IPS पत्नी
   प्रशाखा माथुर के परिवार द्वारा करीब ढाई साल में 40 विला-कॉटेज खरीदने का मामला
   चर्चा में है। रिपोर्ट के मुताबिक, संपत्तियां खरीदने के बाद उसी कंपनी को लीज पर
